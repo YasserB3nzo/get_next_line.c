@@ -16,9 +16,9 @@ void	fonctionlessline(char **storage, int i)
 {
 	char	*temp;
 
-	if ((*storage)[i])
+	if ((*storage)[i])  // if there is something after the new line 
 	{
-		temp = ft_strdup(*storage + i);
+		temp = ft_strdup(*storage + i); // if yes , cpy whts left to a temp 
 		free(*storage);
 		*storage = temp;
 	}
@@ -34,25 +34,26 @@ char	*extract_line(char **storage)
 	char	*line;
 	int		i;
 
-	if (!*storage || !**storage)
+	if (!*storage || !**storage) // *storage chechks if the pointer is null 
+				     // **storage acceds to the first char to check if its null 
 	{
 		if (*storage)
 		{
-			free(*storage);
+			free(*storage); // if the pointer excist we free it and add
 			*storage = NULL;
 		}
 		return (NULL);
 	}
 	i = 0;
-	while ((*storage)[i] && (*storage)[i] != '\n')
+	while ((*storage)[i] && (*storage)[i] != '\n') // calcul the lentgh of trainning
 		i++;
-	if ((*storage)[i] == '\n')
+	if ((*storage)[i] == '\n') // incr to the \n 
 		i++;
-	line = (char *)malloc(i + 1);
+	line = (char *)malloc(i + 1); // +1 for the null term
 	if (!line)
 		return (NULL);
-	ft_strncpy(line, *storage, i);
-	fonctionlessline(storage, i);
+	ft_strncpy(line, *storage, i); // cpy to new line or the last of char
+	fonctionlessline(storage, i); 
 	return (line);
 }
 
