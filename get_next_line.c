@@ -98,3 +98,15 @@ char	*get_next_line(int fd)
 	free(buffer);
 	return (extract_line(&storage));
 }
+// fd is a integer that is returned by the kernel when a file is opened to identify the file 
+// fd are returned by system call
+
+// read : its asystem call , the kernel looks up the fd , int fd table ,it follows the pointer to file table 
+// file table is global kernel data structer
+// file table implement as struct that hold infos (path , pointer to inod , file offset , flags ..)
+// read fetchs the file data via the inode into the buffer until buf size 
+// inode another kernel data that stores the meta data about file ( in the file system)
+// its also implemented as a struct its also hold imformation abut the file and a pointer to the physical file 
+// infos like : file type , last acces time , last modification time,file size ..
+// read after readinf from file the file ofsset is incremented b bz bites
+
