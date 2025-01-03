@@ -102,7 +102,7 @@ char	*get_next_line(int fd)
 // fd are returned by system call
 
 // read : its asystem call , the kernel looks up the fd , int fd table ,it follows the pointer to file table 
-// file table is global kernel data structer
+// file table is global kernel data structer that contains meta data about an open file 
 // file table implement as struct that hold infos (path , pointer to inod , file offset , flags ..)
 // read fetchs the file data via the inode into the buffer until buf size 
 // inode another kernel data that stores the meta data about file ( in the file system)
