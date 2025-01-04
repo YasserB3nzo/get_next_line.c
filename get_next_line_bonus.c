@@ -77,6 +77,10 @@ char	*read_and_update_storage(int fd, char *buffer, char **storage)
 			if (!(*storage))
 				return (NULL);
 		}
+		if (bytes_read == 0)
+		{
+			return (*storage);
+		}
 	}
 	return (*storage);
 }
